@@ -1,0 +1,41 @@
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    restart: $DEFAULT_RESTART
+    networks:
+      traefik:
+        priority: 20
+    ports:
+      - 50505:50505
+      - 50505:50505/udp
+    healthcheck:
+      disable: true
+    volumes:
+      - "$DIR_CONFIG:/config"
+      - "$DIR_ROOT/data/downloads:/data/downloads"
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - UMASK=$UMASK
+      - TZ=$TZ
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=50505
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.qbittorrent.service=qbittorrent
+      - traefik.http.routers.qbittorrent.rule=Host(`torrent.$HOSTNAME`)
+      - traefik.http.services.qbittorrent.loadbalancer.server.port=8080
+
+      - com.centurylinklabs.watchtower.monitor-only=true
+
+      - homepage.group=Download
+      - homepage.name=qBittorrent
+      - homepage.icon=qbittorrent.png
+      - homepage.href=http://torrent.$HOSTNAME
+      - homepage.description=qBittorrent Client
+      - homepage.weight=0
+      - homepage.widget.type=qbittorrent
+      - homepage.widget.url=http://qbittorrent:8080

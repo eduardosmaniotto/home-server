@@ -1,0 +1,33 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: $DEFAULT_RESTART
+    depends_on:
+      - socketproxy
+    networks:
+      socket-proxy:
+        priority: 10
+      traefik:
+        priority: 20
+    healthcheck:
+      disable: true
+    volumes:
+      - "$DIR_ROOT/portainer:/data"
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - DOCKER_HOST=tcp://socketproxy:2375
+    command: -H tcp://socketproxy:2375
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portainer.service=portainer
+      - traefik.http.routers.portainer.rule=Host(`portainer.$HOSTNAME`)
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+
+      - homepage.group=Tools
+      - homepage.name=Portainer
+      - homepage.icon=portainer.png
+      - homepage.href=http://portainer.$HOSTNAME
+      - homepage.description=Container Management
+      - homepage.weight=1

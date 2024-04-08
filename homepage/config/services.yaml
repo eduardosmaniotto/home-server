@@ -1,0 +1,18 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- '':
+    - Calendar:
+        widget:
+          type: calendar
+          view: monthly # 'monthly' or 'agenda'
+          firstDayInWeek: sunday
+          showTime: true
+          integrations:
+            - type: sonarr
+              service_group: Media # This should match the group name where Sonarr is configured
+              service_name: Sonarr # This should match the service name used for Sonarr
+            - type: radarr
+              service_group: Media # This should match the group name where Sonarr is configured
+              service_name: Radarr # This should match the service name used for Sonarr

@@ -1,0 +1,34 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: $DEFAULT_RESTART
+    networks:
+      traefik:
+        priority: 20
+    healthcheck:
+      disable: true
+    volumes:
+      - "$DIR_CONFIG:/config"
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - UMASK=$UMASK
+      - TZ=$TZ
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.prowlarr.service=prowlarr
+      - traefik.http.routers.prowlarr.rule=Host(`prowlarr.$HOSTNAME`)
+      - traefik.http.services.prowlarr.loadbalancer.server.port=9696
+
+      - homepage.group=Download
+      - homepage.name=Prowlarr
+      - homepage.icon=prowlarr.png
+      - homepage.href=http://prowlarr.$HOSTNAME
+      - homepage.description=Indexers Management
+      - homepage.weight=2
+      - homepage.widget.type=prowlarr
+      - homepage.widget.url=http://prowlarr:9696
+      - homepage.widget.key=$API_KEY_PROWLARR

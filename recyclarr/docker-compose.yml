@@ -1,0 +1,23 @@
+services:
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr:latest
+    container_name: recyclarr
+    restart: $DEFAULT_RESTART
+    networks:
+      traefik:
+        priority: 20
+    healthcheck:
+      disable: true
+    volumes:
+      - $DIR_CONFIG:/config
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - UMASK=$UMASK
+      - TZ=$TZ
+      - SONARR_BASE_URL=http://sonarr:8989
+      - SONARR_API_KEY=$API_KEY_SONARR
+      - RADARR_BASE_URL=http://radarr:7878
+      - RADARR_API_KEY=$API_KEY_RADARR

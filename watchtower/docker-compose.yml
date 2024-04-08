@@ -1,0 +1,19 @@
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: $DEFAULT_RESTART
+    depends_on:
+      - socketproxy
+    networks:
+      socket-proxy:
+        priority: 10
+    healthcheck:
+      disable: true
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - DOCKER_HOST=tcp://socketproxy:2375
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_RUN_ONCE=0 0 7 * * MON
+      - TZ=$TZ

@@ -1,0 +1,32 @@
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: $DEFAULT_RESTART
+    depends_on:
+      - socketproxy
+    networks:
+      socket-proxy:
+        priority: 10
+      traefik:
+        priority: 20
+    ports:
+      - "80:80"
+      - "443:443"
+    healthcheck:
+      disable: true
+    security_opt:
+      - no-new-privileges:true
+    command:
+      - --ping=true
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.network=traefik
+      - --providers.docker.endpoint=tcp://socketproxy:2375
+      - --providers.docker.exposedbydefault=false
+      - --global.sendAnonymousUsage=false
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.traefik.service=traefik
+      - traefik.http.routers.traefik.rule=Host(`traefik.$HOSTNAME`, `proxy.$HOSTNAME`)
+      - traefik.http.routers.traefik.service=api@internal

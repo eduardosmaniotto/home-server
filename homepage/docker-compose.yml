@@ -1,0 +1,30 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: $DEFAULT_RESTART
+    depends_on:
+      - socketproxy
+    networks:
+      socket-proxy:
+        priority: 10
+      traefik:
+        priority: 20
+    healthcheck:
+      disable: true
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - $DIR_CONFIG:/app/config
+      - ./public/icons:/app/public/icons
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - HOMEPAGE_VAR_TITLE=$HOMEPAGE_VAR_TITLE
+      - HOMEPAGE_VAR_SEARCH_PROVIDER=$HOMEPAGE_VAR_SEARCH_PROVIDER
+      - HOMEPAGE_VAR_HEADER_STYLE=$HOMEPAGE_VAR_HEADER_STYLE
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.homepage.service=homepage
+      - traefik.http.routers.homepage.rule=Host(`get.$HOSTNAME`)
+      - traefik.http.services.homepage.loadbalancer.server.port=3000

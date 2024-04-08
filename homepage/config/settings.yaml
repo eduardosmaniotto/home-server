@@ -1,0 +1,26 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+title: {{HOMEPAGE_VAR_TITLE}}
+headerStyle: {{HOMEPAGE_VAR_HEADER_STYLE}}
+
+layout:
+  '':
+    style: row
+    columns: 1
+  Media:
+    style: row
+    columns: 2
+  Reading:
+    style: row
+    columns: 1
+  Download:
+    style: row
+    columns: 2
+  Tools:
+    style: row
+    columns: 2
+  Torrent:
+    style: row
+    columns: 1
