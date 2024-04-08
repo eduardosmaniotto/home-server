@@ -9,8 +9,8 @@ services:
     healthcheck:
       disable: true
     volumes:
-      - "$DIR_CONFIG:/config"
-      - "$DIR_ROOT/data/media/books:/books"
+      - "$DIR_CONFIG/calibreweb/config:/config"
+      - "$DIR_DATA/media/books:/books"
     security_opt:
       - no-new-privileges:true
     environment:

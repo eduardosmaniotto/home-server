@@ -9,8 +9,8 @@ services:
     healthcheck:
       disable: true
     volumes:
-      - "$DIR_CONFIG:/config"
-      - "$DIR_ROOT/data:/data"
+      - "$DIR_CONFIG/bazarr/config:/config"
+      - "$DIR_DATA:/data"
     security_opt:
       - no-new-privileges:true
     environment:

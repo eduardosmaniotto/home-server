@@ -13,7 +13,7 @@ services:
     healthcheck:
       disable: true
     volumes:
-      - "$DIR_ROOT/portainer:/data"
+      - "$DIR_CONFIG/portainer/config:/data"
     security_opt:
       - no-new-privileges:true
     environment:

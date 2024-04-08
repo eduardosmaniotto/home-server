@@ -16,8 +16,8 @@ services:
     healthcheck:
       disable: true
     volumes:
-      - "$DIR_CONFIG:/opt/adguardhome/conf"
-      - "$DIR_ROOT/adguardhome/work:/opt/adguardhome/work"
+      - "$DIR_CONFIG/adguardhome/config:/opt/adguardhome/conf"
+      - "$DIR_CONFIG/adguardhome/work:/opt/adguardhome/work"
     security_opt:
       - no-new-privileges:true
     labels:

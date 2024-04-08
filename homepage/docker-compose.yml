@@ -15,8 +15,8 @@ services:
     security_opt:
       - no-new-privileges:true
     volumes:
-      - $DIR_CONFIG:/app/config
-      - ./public/icons:/app/public/icons
+      - "$DIR_CONFIG/homepage/config:/app/config"
+      - "$DIR_CONFIG/homepage/public/icons:/app/public/icons"
     environment:
       - PUID=$PUID
       - PGID=$PGID

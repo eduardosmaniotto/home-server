@@ -12,8 +12,8 @@ services:
     healthcheck:
       disable: true
     volumes:
-      - "$DIR_CONFIG:/config"
-      - "$DIR_ROOT/data/downloads:/data/downloads"
+      - "$DIR_CONFIG/qbittorrent/config:/config"
+      - "$DIR_DATA/downloads:/data/downloads"
     security_opt:
       - no-new-privileges:true
     environment:

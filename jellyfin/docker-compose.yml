@@ -14,9 +14,9 @@ services:
     devices:
       - /dev/dri:/dev/dri
     volumes:
-      - "$DIR_CONFIG:/config"
-      - "$DIR_ROOT/data/media:/data"
-      - "$DIR_ROOT/jellyfin/cache:/cache"
+      - "$DIR_CONFIG/jellyfin/config:/config"
+      - "$DIR_CONFIG/jellyfin/cache:/cache"
+      - "$DIR_DATA/media:/data"
     security_opt:
       - no-new-privileges:true
     environment:

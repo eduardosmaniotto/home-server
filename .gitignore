@@ -1,6 +1,1 @@
 .env
-config/
-logs/
-
-!homepage/config/
-!recyclarr/config/recyclarr.yml

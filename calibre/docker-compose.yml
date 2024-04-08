@@ -9,8 +9,8 @@ services:
     healthcheck:
       disable: true
     volumes:
-      - "$DIR_CONFIG:/config"
-      - "$DIR_ROOT/data/media/books:/data/media/books"
+      - "$DIR_CONFIG/calibre/config:/config"
+      - "$DIR_DATA/media/books:/data/media/books"
     security_opt:
       - no-new-privileges:true
       - seccomp:unconfined
