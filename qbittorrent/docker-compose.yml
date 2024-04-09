@@ -29,8 +29,6 @@ services:
       - traefik.http.routers.qbittorrent.rule=Host(`torrent.$HOSTNAME`)
       - traefik.http.services.qbittorrent.loadbalancer.server.port=8080
 
-      - com.centurylinklabs.watchtower.monitor-only=true
-
       - homepage.group=Download
       - homepage.name=qBittorrent
       - homepage.icon=qbittorrent.png
