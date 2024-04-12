@@ -15,6 +15,6 @@ services:
     environment:
       - DOCKER_HOST=tcp://socketproxy:2375
       - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_MONITOR_ONLY=true
       - WATCHTOWER_SCHEDULE=0 0 6 * * *
-      - WATCHTOWER_INCLUDE_RESTARTING=true
       - TZ=$TZ

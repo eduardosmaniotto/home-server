@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik:latest
+    image: traefik:2.11.0
     container_name: traefik
     restart: $DEFAULT_RESTART
     depends_on:
@@ -25,6 +25,8 @@ services:
       - --providers.docker.endpoint=tcp://socketproxy:2375
       - --providers.docker.exposedbydefault=false
       - --global.sendAnonymousUsage=false
+      - --entryPoints.web.address=:80
+      - --entryPoints.websecure.address=:443
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.service=traefik
