@@ -17,6 +17,7 @@ services:
       - "$DIR_CONFIG/jellyfin/config:/config"
       - "$DIR_CONFIG/jellyfin/cache:/cache"
       - "$DIR_DATA/media:/data"
+      - "$DIR_PORTABLE/media:/portable"
     security_opt:
       - no-new-privileges:true
     environment:

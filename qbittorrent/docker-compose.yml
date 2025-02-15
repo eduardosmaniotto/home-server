@@ -29,7 +29,7 @@ services:
       - traefik.http.routers.qbittorrent.rule=Host(`torrent.$HOSTNAME`)
       - traefik.http.services.qbittorrent.loadbalancer.server.port=8080
 
-      - homepage.group=Download
+      - homepage.group=Provider
       - homepage.name=qBittorrent
       - homepage.icon=qbittorrent.png
       - homepage.href=http://torrent.$HOSTNAME

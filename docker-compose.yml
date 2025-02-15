@@ -25,9 +25,6 @@ include:
   - path: prowlarr/docker-compose.yml
   - path: sonarr/docker-compose.yml
   - path: radarr/docker-compose.yml
-  - path: readarr/docker-compose.yml
-  - path: calibre/docker-compose.yml
-  - path: calibreweb/docker-compose.yml
   - path: recyclarr/docker-compose.yml
   - path: unpackerr/docker-compose.yml
   - path: bazarr/docker-compose.yml

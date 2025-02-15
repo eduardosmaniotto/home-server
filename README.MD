@@ -3,7 +3,6 @@ This is a Media Stack for your Home Server using Docker Compose.
 
 - [Sonarr](https://sonarr.tv/) is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
 - [Radarr](https://radarr.video/) is like Sonarr, but for movies.
-- [Readarr](https://readarr.com/) is like Sonarr, but for books.
 - [Bazarr](https://www.bazarr.media/) is a companion application to Sonarr and Radarr that manages and downloads subtitles based on your requirements.
 - [Prowlarr](https://prowlarr.com/) is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Lidarr, Mylar3, Radarr, Readarr, and Sonarr offering complete management of your indexers with no per app Indexer setup required.
 - [Recyclarr](https://github.com/recyclarr/recyclarr) is a command-line application that will automatically synchronize recommended settings from the [TRaSH guides](https://trash-guides.info/) to your Sonarr/Radarr instances.
@@ -76,12 +75,6 @@ All *arr apps will request to configure an authentication. To disable it, once t
 
 ### Bazarr
 - Configure the Sonarr/Radarr instances.
-
-### Readarr
-If you don't want the ebook stack, you can remove readarr, calibre and calibreweb from the [docker-compose.yml](docker-compose.yml). 
-
-Or follow the [Servarr quick start quide](https://wiki.servarr.com/readarr/quick-start-guide) for the instructions on how to configure them.
-
 
 ## Homepage
 

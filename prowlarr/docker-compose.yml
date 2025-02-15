@@ -23,12 +23,12 @@ services:
       - traefik.http.routers.prowlarr.rule=Host(`prowlarr.$HOSTNAME`)
       - traefik.http.services.prowlarr.loadbalancer.server.port=9696
 
-      - homepage.group=Download
+      - homepage.group=Provider
       - homepage.name=Prowlarr
       - homepage.icon=prowlarr.png
       - homepage.href=http://prowlarr.$HOSTNAME
       - homepage.description=Indexers Management
-      - homepage.weight=2
+      - homepage.weight=1
       - homepage.widget.type=prowlarr
       - homepage.widget.url=http://prowlarr:9696
       - homepage.widget.key=$API_KEY_PROWLARR
