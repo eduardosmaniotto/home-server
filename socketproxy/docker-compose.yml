@@ -9,8 +9,6 @@ services:
         priority: 10
     ports:
       - "127.0.0.1:2375:2375"
-    healthcheck:
-      disable: true
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     security_opt:

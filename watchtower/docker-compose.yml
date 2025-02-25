@@ -8,8 +8,6 @@ services:
     networks:
       socket-proxy:
         priority: 10
-    healthcheck:
-      disable: true
     security_opt:
       - no-new-privileges:true
     environment:

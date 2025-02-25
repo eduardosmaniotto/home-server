@@ -13,8 +13,6 @@ services:
         - 53:53/udp
         # Setup
         #- 3000:3000
-    healthcheck:
-      disable: true
     volumes:
       - "$DIR_CONFIG/adguardhome/config:/opt/adguardhome/conf"
       - "$DIR_CONFIG/adguardhome/work:/opt/adguardhome/work"

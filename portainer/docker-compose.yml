@@ -10,8 +10,6 @@ services:
         priority: 10
       traefik:
         priority: 20
-    healthcheck:
-      disable: true
     volumes:
       - "$DIR_CONFIG/portainer/config:/data"
     security_opt:

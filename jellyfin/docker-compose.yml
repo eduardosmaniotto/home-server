@@ -9,8 +9,6 @@ services:
     ports:
       - "7359:7359/udp"
       - "1900:1900/udp"
-    healthcheck:
-      disable: true
     devices:
       - /dev/dri:/dev/dri
     volumes:

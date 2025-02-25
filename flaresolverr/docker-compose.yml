@@ -6,8 +6,6 @@ services:
     networks:
       traefik:
         priority: 20
-    healthcheck:
-      disable: true
     security_opt:
       - no-new-privileges:true
     environment:

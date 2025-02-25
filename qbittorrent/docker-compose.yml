@@ -9,8 +9,6 @@ services:
     ports:
       - 50505:50505
       - 50505:50505/udp
-    healthcheck:
-      disable: true
     volumes:
       - "$DIR_CONFIG/qbittorrent/config:/config"
       - "$DIR_DATA/downloads:/data/downloads"
