@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik:2.11.0
+    image: traefik:v3.4
     container_name: traefik
     restart: $DEFAULT_RESTART
     depends_on:
@@ -28,5 +28,5 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.service=traefik
-      - traefik.http.routers.traefik.rule=Host(`traefik.$HOSTNAME`, `proxy.$HOSTNAME`)
+      - traefik.http.routers.traefik.rule=Host(`traefik.$HOSTNAME`)
       - traefik.http.routers.traefik.service=api@internal

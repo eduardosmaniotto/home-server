@@ -18,7 +18,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.jellyseerr.service=jellyseerr
-      - traefik.http.routers.jellyseerr.rule=Host(`jellyseerr.$HOSTNAME`, `seerr.$HOSTNAME`)
+      - traefik.http.routers.jellyseerr.rule=Host(`jellyseerr.$HOSTNAME`)
       - traefik.http.services.jellyseerr.loadbalancer.server.port=5055
 
       - homepage.group=Media
